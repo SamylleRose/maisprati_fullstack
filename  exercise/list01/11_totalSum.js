@@ -1,9 +1,24 @@
+const readline = require("readline");
+
+const rl = readline.createInterface({
+  input: process.stdin,
+  output: process.stdout,
+});
+
 let totalSum = 0;
+let count = 0;
 
-for (let i = 0; i < 5; i++) {
-  let number = parseFloat(prompt(`Enter number ${i + 1}:`));
-
-  totalSum += number;
+function askForNumber() {
+  if (count < 5) {
+    rl.question(`Enter number ${count + 1}: `, function (number) {
+      totalSum += parseFloat(number);
+      count++;
+      askForNumber();
+    });
+  } else {
+    console.log(`The total sum of the 5 numbers is: ${totalSum}`);
+    rl.close();
+  }
 }
 
-console.log(`The total sum of the 5 numbers is: ${totalSum}`);
+askForNumber();

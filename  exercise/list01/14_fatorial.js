@@ -1,10 +1,19 @@
-let number = parseInt(prompt("Please enter a number: "));
+const readline = require("readline");
 
-let factorial = 1;
+const rl = readline.createInterface({
+  input: process.stdin,
+  output: process.stdout,
+});
 
-for (let i = 1; i <= number; i++) {
-  factorial *= i;
-}
+rl.question("Please enter a number: ", function (number) {
+  number = parseInt(number);
 
-// Display the result
-console.log(`The factorial of ${number} is: ${factorial}`);
+  let factorial = 1;
+
+  for (let i = 1; i <= number; i++) {
+    factorial *= i;
+  }
+
+  console.log(`The factorial of ${number} is: ${factorial}`);
+  rl.close();
+});

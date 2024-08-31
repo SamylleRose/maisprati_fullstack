@@ -1,8 +1,21 @@
-const numberOne = parseInt(prompt("Number One: "));
-const numberTwo = parseInt(prompt("Number two: "));
+const readline = require("readline");
 
-if (numberOne > numberTwo) {
-  console.log(numberTwo, numberOne);
-} else {
-  console.log(numberOne, numberTwo);
-}
+const rl = readline.createInterface({
+  input: process.stdin,
+  output: process.stdout,
+});
+
+rl.question("Number One: ", function (numberOne) {
+  rl.question("Number Two: ", function (numberTwo) {
+    numberOne = parseInt(numberOne);
+    numberTwo = parseInt(numberTwo);
+
+    if (numberOne > numberTwo) {
+      console.log(numberTwo, numberOne);
+    } else {
+      console.log(numberOne, numberTwo);
+    }
+
+    rl.close();
+  });
+});
