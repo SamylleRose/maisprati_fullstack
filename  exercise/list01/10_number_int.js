@@ -1,5 +1,5 @@
-const number = parseInt(prompt("Enter a Number: "));
+let number = prompt("Enter a number");
 
-for (let i = 0; i < 10; i++) {
+for (let i = 1; i <= 10; i++) {
   console.log(number);
 }
